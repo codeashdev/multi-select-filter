@@ -18,10 +18,8 @@ p{
 }
 
 .search-bar {
-  display: flex;
+  display: ruby;
   align-items: center;
-  margin-bottom: 10px; 
-  
 }
 .search-icon {
     width: 15px; 
@@ -31,10 +29,11 @@ p{
  
   }
 .search-bar input[type="text"] {
-  flex-grow: 1;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  margin-bottom: 10px; 
+  width: 94%;
 }
 
 .search-button {
