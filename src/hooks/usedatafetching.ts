@@ -1,10 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Item } from "../types";
+import { useAppContext } from "../context/AppContext";
 
 export const useDataFetching = () => {
-  const [jsonData, setJsonData] = useState<Item[]>([]);
-  const [selectedItems, setSelectedItems] = useState<Item[]>([]);
-  const [unselectedItems, setUnselectedItems] = useState<Item[]>([]);
+
+  const {
+    jsonData,
+    setJsonData,
+    selectedItems,
+    setSelectedItems,
+    unselectedItems,
+    setUnselectedItems,
+   
+  } = useAppContext();
 
   useEffect(() => {
     fetch("/src/assets/items.json")
@@ -24,7 +32,7 @@ export const useDataFetching = () => {
         );
       })
       .catch((error) => console.error('Error fetching data:', error));
-  }, []);
+  }, [setJsonData, setSelectedItems, setUnselectedItems]);
 
-  return { setSelectedItems, setUnselectedItems, jsonData, selectedItems, unselectedItems };
+  return { jsonData, selectedItems, unselectedItems, setSelectedItems, setUnselectedItems }
 };

@@ -52,7 +52,19 @@ p{
 .scrollable-list {
   overflow-y: auto;
   max-height: 300px;
+ 
 }
+@media screen and (max-width: 370px) {
+  .scrollable-list {
+    max-width: 300px;
+  }
+}
+@media screen and (min-width: 370px) {
+  .scrollable-list {
+    min-width: 300px;
+  }
+}
+
 
 ul {
   list-style: none;
