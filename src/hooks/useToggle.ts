@@ -21,13 +21,15 @@ export const useToggle = () => {
         });
     
         const originalIndex = jsonData.findIndex((originalItem) => originalItem.id === item.id);
-        
-        setUnselectedItems((prevUnselected) => {
+
+        const updatedData = ((prevUnselected: Item[]) => {
             const copy = [...prevUnselected];
             copy.splice(originalIndex, 0, item);
             return copy;
-        
         });
+        
+        setUnselectedItems(updatedData);
+        setFilteredItems(updatedData)
         } else {
         setSelectedItems((prevSelected) => {
             const updatedSelectedItems = [item, ...prevSelected];
@@ -35,8 +37,9 @@ export const useToggle = () => {
         
             return updatedSelectedItems;
         });
-        setUnselectedItems((prevUnselected) => prevUnselected.filter((unselectedItem) => unselectedItem.id !== item.id));
-        setFilteredItems((prevUnselected) => prevUnselected.filter((unselectedItem) => unselectedItem.id !== item.id))
+        const updatedData =(prevUnselected: Item[]) => prevUnselected.filter((unselectedItem) => unselectedItem.id !== item.id)
+        setUnselectedItems(updatedData);
+        setFilteredItems(updatedData)
         }
     };
     return {ToggleItemSelection}

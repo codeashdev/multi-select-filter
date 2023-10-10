@@ -9,12 +9,10 @@ export const useSearch = () => {
         unselectedItems,
         setUnselectedItems,
         filteredItems,
-        setFilteredItems,
        
       } = useAppContext();
      // Function to perform the search
     const performSearch = () => {
-        setFilteredItems(unselectedItems); 
         const query = searchQuery.toLowerCase();
         const results = unselectedItems.filter((item) =>
         item.name.toLowerCase().includes(query)

@@ -11,6 +11,7 @@ export const useDataFetching = () => {
     setSelectedItems,
     unselectedItems,
     setUnselectedItems,
+    setFilteredItems,
    
   } = useAppContext();
 
@@ -30,9 +31,12 @@ export const useDataFetching = () => {
         setUnselectedItems(
           items.filter((item) => !sessionSelectedItems.some((selectedItem: Item) => selectedItem.id === item.id))
         );
+        setFilteredItems(
+          items.filter((item) => !sessionSelectedItems.some((selectedItem: Item) => selectedItem.id === item.id))
+        )
       })
       .catch((error) => console.error('Error fetching data:', error));
-  }, [setJsonData, setSelectedItems, setUnselectedItems]);
+  }, [setFilteredItems, setJsonData, setSelectedItems, setUnselectedItems]);
 
   return { jsonData, selectedItems, unselectedItems, setSelectedItems, setUnselectedItems }
 };
