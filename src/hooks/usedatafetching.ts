@@ -16,7 +16,7 @@ export const useDataFetching = () => {
   } = useAppContext();
 
   useEffect(() => {
-    fetch("/src/assets/items.json")
+    fetch("/items.json")
       .then((response) => response.json())
       .then((data: { data: string[] }) => {
         const items = data.data.map((name, index) => ({
