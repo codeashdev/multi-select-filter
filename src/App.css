@@ -20,22 +20,27 @@ p{
 .search-bar {
   display: flex;
   align-items: center;
+  position: relative; 
 }
+
 .search-icon {
-    width: 15px; 
-    height: 15px;
-    position: relative;
-    right: 25px;
-    margin-bottom: 10px;
- 
-  }
+  display: inline;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 5px; 
+  top: 42%;
+  transform: translateY(-50%); 
+}
+
 .search-bar input[type="text"] {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
   width: 94%;
 }
+
 
 .search-button {
     background-color: #007BFF;
